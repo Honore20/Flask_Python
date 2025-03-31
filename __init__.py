@@ -8,9 +8,10 @@ app = Flask(__name__)
 def exercice(valeur):
     etoiles = ''
     for j in range(1, valeur + 1):
-        espaces = ' ' * (valeur - j)  # Ajouter des espaces pour l'alignement à droite
+        espaces = '&nbsp;' * (valeur - j)  # Utiliser &nbsp; pour les espaces HTML
         etoiles += espaces + '*' * j + '<br>'
     return etoiles
 
 if __name__ == "__main__":
     app.run(debug=True)
+
