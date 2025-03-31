@@ -9,7 +9,7 @@ def exercice(valeur):
     etoiles = ''
     for i in range(valeur):
         etoiles += '*' *valeur + '<br>'
-    return etoiles
+    return etoiles#c
 
 
 if __name__ == "__main__":
