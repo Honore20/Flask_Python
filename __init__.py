@@ -10,7 +10,7 @@ def exercice(valeur):
     for i in range(valeur):
         etoiles += '*'
     return etoiles
-
+#comment
 
 if __name__ == "__main__":
   app.run(debug=True)
