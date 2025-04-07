@@ -2,22 +2,25 @@ from flask import Flask
 from flask import render_template
 from flask import json
 
+
 app = Flask(__name__)
 
 @app.route('/<int:valeur>')
 def exercice(valeur):
-    if valeur < 2:
-        return '<pre>La valeur doit être supérieure ou égale à 2.</pre>'
+    somme = 0
+    for i in range(1, valeur + 1):
+        if i % 11 == 0:
+            continue
+        if i % 5 == 0 or i % 7 == 0:
+            somme += i
+        if somme > 5000:
+            return f'<pre>La somme a dépassé 5000. Programme interrompu. Somme actuelle: {somme}</pre>'
     
-    sequence = [0, 1]
-    for _ in range(2, valeur):
-        sequence.append(sequence[-1] + sequence[-2])
-    
-    fibonacci = '<pre>' + ', '.join(map(str, sequence)) + '</pre>'
-    return fibonacci
+    return f'<pre>Somme finale: {somme}</pre>'
 
 if __name__ == "__main__":
     app.run(debug=True)
+
 
 
 
