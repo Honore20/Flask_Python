@@ -6,11 +6,12 @@ app = Flask(__name__)
 
 @app.route('/<int:valeur>')
 def exercice(valeur):
-    a, b = 0, 1
-    sequence = [a, b]
+    if valeur < 2:
+        return '<pre>La valeur doit être supérieure ou égale à 2.</pre>'
+    
+    sequence = [0, 1]
     for _ in range(2, valeur):
-        a, b = b, a + b
-        sequence.append(b)
+        sequence.append(sequence[-1] + sequence[-2])
     
     fibonacci = '<pre>' + ', '.join(map(str, sequence)) + '</pre>'
     return fibonacci
