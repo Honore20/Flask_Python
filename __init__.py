@@ -2,8 +2,6 @@ from flask import Flask
 from flask import render_template
 from flask import json
 
-
-
 app = Flask(__name__)
 
 @app.route('/<int:valeur>')
@@ -15,9 +13,12 @@ def exercice(valeur):
         if i % 5 == 0 or i % 7 == 0:
             somme += i
         if somme > 5000:
-            return f'<pre>La somme a dépassé 5000. Programme interrompu. Somme actuelle: {somme}</pre>'
+            break
     
     return f'<pre>Somme finale: {somme}</pre>'
+
+if __name__ == "__main__":
+    app.run(debug=True)
 
 if __name__ == "__main__":
     app.run(debug=True)
